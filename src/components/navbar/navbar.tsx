@@ -5,10 +5,10 @@ import '../../App.css';
 export default function Navbar() {
   return (
     <>
-      <nav className="flex justify-between py-5 fixed w-full bg-black z-10">
+      <nav className="flex justify-between py-5 fixed w-full bg-black z-10 border-white">
         <div>
           <Link className="px-4 py-2 mx-2 text-white font-bold text-xl" to="/">
-            <img src={StarWars} alt="Star Wars Logo" className="h-auto w-28 inline-block ml-4" />
+            <img src={StarWars} alt="Star Wars Logo" className="h-auto w-24 inline-block ml-4" />
           </Link>
         </div>
         <div className="flex items-center uppercase">

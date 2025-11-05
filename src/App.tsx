@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/navbar/navbar';
 import Home from "./pages/Home";
-import StarShips from "./pages/Ships";
+import StarShips from "./pages/StarShips";
 
 export default function App() {
   return (

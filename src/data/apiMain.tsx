@@ -1,37 +1,23 @@
-import type { APIResponse } from "./apiTypes";
+import getAPIResponse from "./apiConnect";
+import type { ShipEntry } from "./apiTypes";
 
-let API_URL: string | null = null;
+let shipsHistory: ShipEntry[] = [];
 
-async function resolveConfig() {
-  if (API_URL) return API_URL;
+export async function ShowShipsHistory(): Promise<ShipEntry[]> {
 
-  const { API_URL: url } = await import.meta.env.VITE_API_URL;
-  API_URL = url;
-  return API_URL;
-}
+    const shipData = await getAPIResponse();
+    if (!shipData?.starships) return [];
+    
+    try {
+        const response = await fetch(shipData.starships);
+        const data = await response.json();
 
-export default async function getAPIResponse(): Promise<APIResponse | null> {
-  try {
-    const url = await resolveConfig();
-
-    if (!url) {
-      throw new Error("API_URL is not defined.");
+        shipsHistory = data.results.map((ship: any) => ({
+        name: ship.name,
+        model: ship.model,
+        }));
+    } catch (error) {
+        console.error("Error loading starships:", error);
     }
-
-    const response = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Error in the request: ${response.status}`);
-    }
-
-    const data: APIResponse = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error retrieving information:", error);
-    return null;
-  }
+    return shipsHistory;
 }
