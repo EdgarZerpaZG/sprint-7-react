@@ -1,49 +1,53 @@
 import { useEffect, useState } from "react";
-import StarWars from "../assets/star_wars.svg";
 import T1 from "../components/title/tOne";
 import T2 from "../components/title/tTwo";
 import { ShowShipsHistory } from "../data/apiMain";
 import StarshipBox from "../components/starship/starshipBox";
-import type { ShipEntry } from "../data/apiTypes";
+import type { StarShipEntry } from "../data/apiTypes";
 
 export default function StarShips() {
-  const [ships, setShips] = useState<ShipEntry[]>([]);
+  const [ships, setShips] = useState<StarShipEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [hasNext, setHasNext] = useState(true);
 
   useEffect(() => {
     async function fetchShips() {
-      const data = await ShowShipsHistory();
-      setShips(data);
+      setLoading(true);
+      const data = await ShowShipsHistory(page);
+      setShips((prev) => [...prev, ...data]);
+      setHasNext(data.length > 0);
       setLoading(false);
     }
     fetchShips();
-  }, []);
+  }, [page]);
 
   return (
-    <main className="flex justify-center items-center h-full">
-      <section className="text-center w-full max-w-2xl relative">
-        <img
-          src={StarWars}
-          alt="Star Wars logo"
-          className="mx-auto mb-3 h-auto w-28"
-        />
-        <T1
-          style="text-center text-3xl font-bold underline pb-5"
-          title="StarShips 🚀"
-        />
-        <T2 style="text-center text-xl" title="Starships collection" />
+    <main className="h-full pb-20">
+      <section className="text-center">
+        <T1 style="text-center text-3xl font-bold underline pb-5 text-amber-300" title="StarShips 🚀"/>
+        <T2 style="text-center text-xl text-amber-300" title="Starships collection" />
+      </section>
+      <section className="w-full max-w-2xl mx-auto">
+        <div className="mt-10 space-y-5">
+          {ships.length > 0 ? (
+            ships.map((ship, index) => (
+              <StarshipBox key={index} name={ship.name} model={ship.model} />
+            ))
+          ) : (
+            <p className="text-gray-500 mt-5">No starships found.</p>
+          )}
+        </div>
 
-        {loading ? (
-          <p className="text-gray-500 mt-5">Loading starships...</p>
-        ) : (
-          <div className="mt-10 space-y-5">
-            {ships.length > 0 ? (
-              ships.map((ship, index) => (
-                <StarshipBox key={index} name={ship.name} model={ship.model} />
-              ))
-            ) : (
-              <p className="text-gray-500 mt-5">No starships found.</p>
-            )}
+        {hasNext && (
+          <div>
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              className="mt-10 bg-blue-600 hover:bg-blue-700 text-white mx-auto block px-5 py-2 rounded cursor-pointer"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Load More"}
+            </button>
           </div>
         )}
       </section>

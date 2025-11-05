@@ -7,7 +7,17 @@ export interface APIResponse {
     vehicles: string;
 }
 
-export interface ShipEntry {
+export interface StarShipEntry {
     name: string;
     model: string;
+}
+
+export interface StarshipDetails {
+    name: string;
+    model: string;
+    manufacturer: string;
+    cost_in_credits: number;
+    length: number;
+    max_atmosphering_speed: number;
+    crew: number;
 }

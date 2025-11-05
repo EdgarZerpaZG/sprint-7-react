@@ -6,8 +6,8 @@ export default function Home() {
     <>
         <main className="flex justify-center items-center h-full">
             <section>
-                <T1 style="text-center text-3xl font-bold underline pb-5" title='Star Wars API 🚀' />
-                <T2 style="text-center text-xl" title='A simple project using Vite, React, TypeScript and Tailwind CSS' />
+                <T1 style="text-center text-3xl font-bold underline pb-5 text-amber-300" title='Star Wars API 🚀' />
+                <T2 style="text-center text-xl text-amber-300" title='A simple project using Vite, React, TypeScript and Tailwind CSS' />
             </section>
         </main>
     </>

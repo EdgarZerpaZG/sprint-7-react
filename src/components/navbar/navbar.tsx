@@ -5,7 +5,7 @@ import '../../App.css';
 export default function Navbar() {
   return (
     <>
-      <nav className="flex justify-between py-5 fixed w-full bg-black z-10 border-white">
+      <nav className="navbar flex justify-between py-5 fixed w-full bg-black z-10">
         <div>
           <Link className="px-4 py-2 mx-2 text-white font-bold text-xl" to="/">
             <img src={StarWars} alt="Star Wars Logo" className="h-auto w-24 inline-block ml-4" />
