@@ -33,14 +33,20 @@ export default function StarShip() {
 
   return (
     <main className="min-h-screen flex justify-center items-center">
-      <section className="bg-gray-800 text-white p-8 rounded-md max-w-lg w-full">
+      <section className="bg-gray-800 text-white p-8 rounded-md w-full">
         <h2 className="text-3xl font-bold mb-3">{ship.name}</h2>
-        <p><strong>Model:</strong> {ship.model}</p>
-        <p><strong>Manufacturer:</strong> {ship.manufacturer}</p>
-        <p><strong>Cost:</strong> {ship.cost_in_credits} credits</p>
-        <p><strong>Length:</strong> {ship.length} m</p>
-        <p><strong>Speed:</strong> {ship.max_atmosphering_speed}</p>
-        <p><strong>Crew:</strong> {ship.crew}</p>
+        <div className="flex">
+            <div className="flex-1">
+                <p><strong>Model:</strong> {ship.model}</p>
+                <p><strong>Manufacturer:</strong> {ship.manufacturer}</p>
+                <p><strong>Cost:</strong> {ship.cost_in_credits} credits</p>
+            </div>
+            <div className="flex-1">
+                <p><strong>Length:</strong> {ship.length} m</p>
+                <p><strong>Speed:</strong> {ship.max_atmosphering_speed}</p>
+                <p><strong>Crew:</strong> {ship.crew}</p>
+            </div>
+        </div>
       </section>
     </main>
   );

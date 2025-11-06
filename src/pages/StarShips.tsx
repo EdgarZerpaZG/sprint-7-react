@@ -46,7 +46,7 @@ export default function StarShips() {
               className="mt-10 bg-blue-600 hover:bg-blue-700 text-white mx-auto block px-5 py-2 rounded cursor-pointer"
               disabled={loading}
             >
-              {loading ? "Loading..." : "Load More"}
+              {loading ? "Loading..." : "View More"}
             </button>
           </div>
         )}
