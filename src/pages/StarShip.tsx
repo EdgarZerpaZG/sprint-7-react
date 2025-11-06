@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { StarshipDetails } from "../data/apiTypes";
 import { ShowShipsHistory } from "../data/apiMain";
-import { slugify } from "../utils/slugify";
+import { Slugify } from "../utils/slugify";
 
 export default function StarShip() {
   const { slug } = useParams();
@@ -15,7 +15,7 @@ export default function StarShip() {
       let page = 1;
       while (!found) {
         const data = await ShowShipsHistory(page);
-        const match = data.find((s) => slugify(s.name) === slug);
+        const match = data.find((s) => Slugify(s.name) === slug);
         if (match) {
           found = match;
         } else if (data.length === 0) break;

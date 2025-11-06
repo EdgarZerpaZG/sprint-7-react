@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import StarShips from "./pages/StarShips";
 import StarShip from './pages/StarShip';
 import Login from './pages/Login';
-import Register from './pages/Register'
+import Register from './pages/Register';
 
 export default function App() {
   return (

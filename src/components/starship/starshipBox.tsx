@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import type { StarShipEntry } from "../../data/apiTypes";
-import { slugify } from "../../utils/slugify";
+import { Slugify } from "../../utils/slugify";
 
 export default function StarshipBox({ name, model }: StarShipEntry) {
-  const slug = slugify(name);
+  const slug = Slugify(name);
 
   return (
     <div className="mb-5 bg-gray-800 p-5 rounded text-white">

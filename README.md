@@ -1,8 +1,8 @@
-# IT Academy - Sprint N°7: REACT(redux, query)
+# IT Academy - Sprint N°7: REACT(with Data Base)
 
 ## 🌐 Star Wars API
 
-This project is a **React application** focused on learning and understanding the **implementation of redux and react query**.  
+This project is a **React application** focused on learning and understanding the **API connections and Data Base**.  
 
 ---
 
@@ -18,8 +18,6 @@ The goal of this project is to:
 - ⚛️ **React** (Vite)
 - 💅 **Tailwind** for styling  
 - 🧩 **TypeScript** 
-- 🔗 **Redux**
-- 🌐 **React Query**
 
 ---
 

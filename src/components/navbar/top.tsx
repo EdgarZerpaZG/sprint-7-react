@@ -19,8 +19,8 @@ export default function Top() {
                     </li>
                 </ul>
                 <ul className="flex"    >
-                    <Link to="/">
-                        <li className="px-2 py-2 text-white hover:text-gray-500 uppercase">LOG IN</li>
+                    <Link to="/login">
+                        <li className="px-2 py-2 text-white hover:text-gray-500 uppercase font-bold">LOG IN</li>
                     </Link>
                 </ul>
             </div>
