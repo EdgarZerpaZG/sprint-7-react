@@ -32,8 +32,8 @@ export default function StarShip() {
   if (!ship) return <p className="text-center text-gray-500 mt-5">Starship not found.</p>;
 
   return (
-    <main className="min-h-screen flex justify-center items-center">
-      <section className="bg-gray-800 text-white p-8 rounded-md w-full">
+    <main className="h-full">
+      <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
         <h2 className="text-3xl font-bold mb-3">{ship.name}</h2>
         <div className="flex">
             <div className="flex-1">
@@ -46,6 +46,34 @@ export default function StarShip() {
                 <p><strong>Speed:</strong> {ship.max_atmosphering_speed}</p>
                 <p><strong>Crew:</strong> {ship.crew}</p>
             </div>
+        </div>
+      </section>
+      <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
+        <h2 className="text-3xl font-bold mb-3">Pilots</h2>
+        <div className="flex">
+          <ul>
+            {Array.isArray(ship.pilots) ? (
+              ship.pilots.map((pilot: string, index: number) => (
+                <li key={index}><a href={pilot} target="_blank">{pilot}</a></li>
+              ))
+            ) : (
+              <li>No pilots</li>
+            )}
+          </ul>
+        </div>
+      </section>
+      <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
+        <h2 className="text-3xl font-bold mb-3">Films</h2>
+        <div className="flex">
+          <ul>
+            {Array.isArray(ship.films) ? (
+              ship.films.map((film: string, index: number) => (
+                <li key={index}><a href={film} target="_blank">{film}</a></li>
+              ))
+            ) : (
+              <li>No films</li>
+            )}
+          </ul>
         </div>
       </section>
     </main>

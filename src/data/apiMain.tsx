@@ -17,6 +17,8 @@ export async function ShowShipsHistory(page: number = 1): Promise<StarshipDetail
       length: ship.length,
       max_atmosphering_speed: ship.max_atmosphering_speed,
       crew: ship.crew,
+      pilots: ship.pilots.map((pilots: string) => pilots),
+      films: ship.films.map((films: string) => films),
     }));
   } catch (error) {
     console.error("Error loading starships:", error);

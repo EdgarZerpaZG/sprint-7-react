@@ -6,6 +6,10 @@ import StarShips from "./pages/StarShips";
 import StarShip from './pages/StarShip';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import EmailConfirmation from "./pages/EmailConfirmation";
+import Profile from './pages/Profile';
+import Pilot from './pages/Pilot';
+import Film from './pages/Film';
 
 export default function App() {
   return (
@@ -19,6 +23,10 @@ export default function App() {
             <Route path="/starships/:slug" element={<StarShip />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/emailconfirmation" element={<EmailConfirmation/>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/pilot" element={<Pilot />} />
+            <Route path="/film" element={<Film />} />
           </Routes>
         </BrowserRouter>
       </StarWarsProvider>
