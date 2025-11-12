@@ -2,7 +2,7 @@
 
 ## 🌐 Star Wars API
 
-This project is a **React application** focused on learning and understanding the **API connections and Data Base**.  
+This project is a **React application** focused on learning and understanding the **API connections and Data Base**. Includes user authentication and image management powered by Supabase. 
 
 ---
 
@@ -10,14 +10,28 @@ This project is a **React application** focused on learning and understanding th
 
 The goal of this project is to:
 - Understand the use of **differents tecnologies** in React to manage data through the APP.
+- Explore how to handle dynamic data and images within a React application.
+- Gain hands-on experience with modern frontend development tools.
+
+---
+
+## 🧠 Key Features
+
+- Fetch and display information from the Star Wars API (starships, pilots, films, etc.)
+- User registration and login using Supabase Authentication.
+- Dynamic image storage and retrieval from Supabase Storage.
+- Search and filter functionality for exploring Star Wars data.
+- Responsive design built with TailwindCSS
 
 ---
 
 ## 🚀 Technologies Used
 
 - ⚛️ **React** (Vite)
-- 💅 **Tailwind** for styling  
+- 💅 **Tailwind CSS** for styling  
 - 🧩 **TypeScript** 
+- 💾 **Supabase** for authentication, database, and storage.
+- 🧪 **Vitest & React** Testing Library for testing
 
 ---
 

@@ -20,14 +20,14 @@ export interface StarshipDetails {
     length: number;
     max_atmosphering_speed: number;
     crew: number;
-    pilots: string;
-    films: string;
+    pilots: string[];
+    films: string[];
 }
 
-export interface Pilots {
-    name: string;
+export interface PilotsBoxProps {
+  pilotUrls: string[];
 }
 
-export interface Films {
-    name: string;
+export interface FilmsBoxProps {
+  filmUrls: string[];
 }

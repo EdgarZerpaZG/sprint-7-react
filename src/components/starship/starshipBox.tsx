@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
-import type { StarShipEntry } from "../../data/apiTypes";
+import type { StarShipEntry } from "../../types/apiTypes";
 import { Slugify } from "../../utils/slugify";
 
 export default function StarshipBox({ name, model }: StarShipEntry) {

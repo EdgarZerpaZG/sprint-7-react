@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { StarshipDetails } from "../data/apiTypes";
+import type { StarshipDetails } from "../types/apiTypes";
 import { ShowShipsHistory } from "../data/apiMain";
+import { getImageUrl } from "../utils/getImgURL";
 import { Slugify } from "../utils/slugify";
+import PilotsBox from './../components/pilots/pilotsBox';
+import FilmsBox from './../components/films/filmsBox';
 
 export default function StarShip() {
   const { slug } = useParams();
@@ -31,11 +34,21 @@ export default function StarShip() {
   if (loading) return <p className="text-center text-gray-500 mt-5">Loading starship...</p>;
   if (!ship) return <p className="text-center text-gray-500 mt-5">Starship not found.</p>;
 
+  const imageUrl = getImageUrl("starships", `${Slugify(ship.name)}.png`);
+
   return (
     <main className="h-full">
       <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
-        <h2 className="text-3xl font-bold mb-3">{ship.name}</h2>
-        <div className="flex">
+        <h2 className="text-3xl font-bold mb-5 text-center">{ship.name}</h2>
+        <div className="flex justify-center mb-5">
+           <img
+            src={imageUrl}
+            alt={ship.name}
+            className="w-96 h-auto object-cover rounded-xl"
+            onError={(e) => ((e.target as HTMLImageElement).src = "/default-starship.png")}
+          />
+        </div>
+        <div className="md:flex block">
             <div className="flex-1">
                 <p><strong>Model:</strong> {ship.model}</p>
                 <p><strong>Manufacturer:</strong> {ship.manufacturer}</p>
@@ -49,32 +62,10 @@ export default function StarShip() {
         </div>
       </section>
       <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
-        <h2 className="text-3xl font-bold mb-3">Pilots</h2>
-        <div className="flex">
-          <ul>
-            {Array.isArray(ship.pilots) ? (
-              ship.pilots.map((pilot: string, index: number) => (
-                <li key={index}><a href={pilot} target="_blank">{pilot}</a></li>
-              ))
-            ) : (
-              <li>No pilots</li>
-            )}
-          </ul>
-        </div>
+        <PilotsBox pilotUrls={ship.pilots} />
       </section>
       <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
-        <h2 className="text-3xl font-bold mb-3">Films</h2>
-        <div className="flex">
-          <ul>
-            {Array.isArray(ship.films) ? (
-              ship.films.map((film: string, index: number) => (
-                <li key={index}><a href={film} target="_blank">{film}</a></li>
-              ))
-            ) : (
-              <li>No films</li>
-            )}
-          </ul>
-        </div>
+        <FilmsBox filmUrls={ship.films} />
       </section>
     </main>
   );

@@ -1,5 +1,5 @@
 import getAPIResponse from "./apiConnect";
-import type { StarshipDetails } from "./apiTypes";
+import type { StarshipDetails } from "../types/apiTypes";
 
 export async function ShowShipsHistory(page: number = 1): Promise<StarshipDetails[]> {
   const shipData = await getAPIResponse();

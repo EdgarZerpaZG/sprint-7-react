@@ -3,7 +3,7 @@ import T1 from "../components/title/tOne";
 import T2 from "../components/title/tTwo";
 import { ShowShipsHistory } from "../data/apiMain";
 import StarshipBox from "../components/starship/starshipBox";
-import type { StarShipEntry } from "../data/apiTypes";
+import type { StarShipEntry } from "../types/apiTypes";
 
 export default function StarShips() {
   const [ships, setShips] = useState<StarShipEntry[]>([]);

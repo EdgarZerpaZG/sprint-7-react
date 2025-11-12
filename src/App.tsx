@@ -25,8 +25,8 @@ export default function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/emailconfirmation" element={<EmailConfirmation/>} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/pilot" element={<Pilot />} />
-            <Route path="/film" element={<Film />} />
+            <Route path="/pilot/:id" element={<Pilot />} />
+            <Route path="/film/:id" element={<Film />} />
           </Routes>
         </BrowserRouter>
       </StarWarsProvider>

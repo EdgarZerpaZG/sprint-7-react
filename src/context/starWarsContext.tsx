@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import getAPIResponse from "../data/apiConnect";
-import type { APIResponse, StarshipDetails } from "../data/apiTypes";
+import type { APIResponse, StarshipDetails } from "../types/apiTypes";
 
 interface StarWarsContextType {
   baseUrls: APIResponse | null;

@@ -1,4 +1,4 @@
-import type { APIResponse } from "./apiTypes";
+import type { APIResponse } from "../types/apiTypes";
 
 let API_URL: string | null = null;
 
