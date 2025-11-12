@@ -31,7 +31,7 @@ The goal of this project is to:
 - 💅 **Tailwind CSS** for styling  
 - 🧩 **TypeScript** 
 - 💾 **Supabase** for authentication, database, and storage.
-- 🧪 **Vitest & React** Testing Library for testing
+- 🧪 **Vitest & React Testing Library** for testing
 
 ---
 
