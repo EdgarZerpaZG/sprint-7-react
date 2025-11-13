@@ -29,9 +29,9 @@ export default function Pilot() {
         </div>
       </section>
       <section className="text-center">
-        <h2 className="text-3xl font-bold mb-3">{pilot.name}</h2>
-        <p><strong>Height:</strong> {pilot.height}</p>
-        <p><strong>Mass:</strong> {pilot.mass}</p>
+        <h2 className="text-3xl font-bold mb-3 text-amber-300 uppercase">{pilot.name}</h2>
+        <p><strong className="text-amber-300">Height:</strong> {pilot.height}</p>
+        <p><strong className="text-amber-300">Mass:</strong> {pilot.mass}</p>
       </section>
     </main>
   );

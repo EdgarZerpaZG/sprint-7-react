@@ -29,10 +29,10 @@ export default function Film() {
         </div>
       </section>
       <section className="text-center">
-        <h2 className="text-3xl font-bold mb-3">{film.title}</h2>
-        <p><strong>Episode:</strong> {film.episode_id}</p>
-        <p><strong>Director:</strong> {film.director}</p>
-        <p><strong>Release Date:</strong> {film.release_date}</p>
+        <h2 className="text-3xl font-bold mb-3 text-amber-300 uppercase">{film.title}</h2>
+        <p><strong className="text-amber-300">Episode:</strong> {film.episode_id}</p>
+        <p><strong className="text-amber-300">Director:</strong> {film.director}</p>
+        <p><strong className="text-amber-300">Release Date:</strong> {film.release_date}</p>
       </section>
     </main>
   );

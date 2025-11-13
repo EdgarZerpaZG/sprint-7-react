@@ -39,7 +39,7 @@ export default function StarShip() {
   return (
     <main className="h-full">
       <section className="bg-gray-800 text-white p-8 rounded-md w-full mb-5">
-        <h2 className="text-3xl font-bold mb-5 text-center">{ship.name}</h2>
+        <h2 className="text-3xl font-bold mb-5 text-center text-amber-300 uppercase">{ship.name}</h2>
         <div className="flex justify-center mb-5">
            <img
             src={imageUrl}
@@ -50,14 +50,14 @@ export default function StarShip() {
         </div>
         <div className="md:flex block">
             <div className="flex-1">
-                <p><strong>Model:</strong> {ship.model}</p>
-                <p><strong>Manufacturer:</strong> {ship.manufacturer}</p>
-                <p><strong>Cost:</strong> {ship.cost_in_credits} credits</p>
+                <p><strong className="text-amber-300">Model:</strong> {ship.model}</p>
+                <p><strong className="text-amber-300">Manufacturer:</strong> {ship.manufacturer}</p>
+                <p><strong className="text-amber-300">Cost:</strong> {ship.cost_in_credits} credits</p>
             </div>
             <div className="flex-1">
-                <p><strong>Length:</strong> {ship.length} m</p>
-                <p><strong>Speed:</strong> {ship.max_atmosphering_speed}</p>
-                <p><strong>Crew:</strong> {ship.crew}</p>
+                <p><strong className="text-amber-300">Length:</strong> {ship.length} m</p>
+                <p><strong className="text-amber-300">Speed:</strong> {ship.max_atmosphering_speed}</p>
+                <p><strong className="text-amber-300">Crew:</strong> {ship.crew}</p>
             </div>
         </div>
       </section>

@@ -29,19 +29,19 @@ export default function PilotsBox({ pilotUrls }: PilotsBoxProps) {
         fetchPilots();
     }, [pilotUrls]);
 
-    if (loading) return <p>Loading pilots...</p>;
-    if (pilots.length === 0) return <p>No pilots</p>;
+    if (loading) return <p className='text-center uppercase'>Loading pilots...</p>;
+    if (pilots.length === 0) return <p className="text-center text-amber-300 uppercase">Unknown pilots</p>;
 
     return (
         <>
-            <h2 className="text-3xl font-bold mb-3 text-center">Pilots</h2>
+            <h2 className="text-3xl font-bold mb-3 text-center text-amber-300 uppercase">Pilots</h2>
             <div className="md:flex block">
                 {pilots.map((pilot, index) => (
                 <div className="flex-1" key={index}>
-                    <a href={`/pilot/${pilot.url.split("/").at(-2)}`} className="text-indigo-400 hover:underline" target="_blank">
+                    <a href={`/pilot/${pilot.url.split("/").at(-2)}`} className="text-amber-300 hover:underline" target="_blank">
                         <div className="text-center p-3">
-                            <img src={getImageUrl("pilots", `${pilot.url.split("/").at(-2)}.jpg`)} alt={pilot.name} />
-                            <h5>{pilot.name}</h5>
+                            <img src={getImageUrl("pilots", `${pilot.url.split("/").at(-2)}.jpg`)} alt={pilot.name} className="mx-auto w-96" onError={(e) => ((e.target as HTMLImageElement).src = "/default-pilot.png")} />
+                            <h5 className="uppercase mt-4">{pilot.name}</h5>
                         </div>
                     </a>
                 </div>

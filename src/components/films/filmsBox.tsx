@@ -29,19 +29,19 @@ export default function FilmsBox({ filmUrls }: FilmsBoxProps) {
         fetchFilms();
     }, [filmUrls]);
 
-    if (loading) return <p>Loading films...</p>;
-    if (films.length === 0) return <p>No films</p>;
+    if (loading) return <p className='text-center uppercase'>Loading films...</p>;
+    if (films.length === 0) return <p className="text-center text-amber-300 uppercase">Unknown films</p>;
 
     return (
         <>
-            <h2 className="text-3xl font-bold mb-3 text-center">Films</h2>
+            <h2 className="text-3xl font-bold mb-3 text-center text-amber-300 uppercase">Films</h2>
             <div className="md:flex block">
                 {films.map((film, index) => (
                 <div className="flex-1" key={index}>
-                    <a href={`/film/${film.url.split("/").at(-2)}`} className="text-indigo-400 hover:underline" target="_blank">
+                    <a href={`/film/${film.url.split("/").at(-2)}`} className="text-amber-300 hover:underline" target="_blank">
                         <div className="text-center p-3">
-                            <img src={getImageUrl("films", `${film.url.split("/").at(-2)}.jpg?v=2`)} alt={film.title} />
-                            <h5>{film.title}</h5>
+                            <img src={getImageUrl("films", `${film.url.split("/").at(-2)}.jpg?v=2`)} alt={film.title} className="mx-auto w-96" onError={(e) => ((e.target as HTMLImageElement).src = "/default-film.png")} />
+                            <h5 className="uppercase mt-4">{film.title}</h5>
                         </div>
                     </a>
                 </div>
