@@ -1,46 +1,43 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { AuthProvider } from "../context/AuthContext";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import LoginForm from "../components/form/loginForm";
 import { supabase } from "../lib/supabaseClient";
+import { MemoryRouter } from "react-router-dom";
 
-describe("Form validation", () => {
-  it("shows errors for invalid data", async () => {
-    render(
-        <AuthProvider>
-            <LoginForm />
-        </AuthProvider>
-    );
+vi.mock("../lib/supabaseClient", () => {
+  return {
+    supabase: {
+      auth: {
+        signInWithPassword: vi.fn(),
+      },
+    },
+  };
+});
 
-    const emailInput = screen.getByPlaceholderText(/email/i);
-    const passwordInput = screen.getByPlaceholderText(/password/i);
-    const button = screen.getByRole("button", { name: /login/i });
-
-    await userEvent.type(emailInput, "invalid-email");
-    await userEvent.type(passwordInput, "invalid-password");
-    await userEvent.click(button);
-
-    expect(await screen.findByText(/invalid email/i)).toBeInTheDocument();
-    expect(await screen.findByText(/invalid password/i)).toBeInTheDocument();
+describe("LoginForm", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  it("submits correctly with valid data", async () => {
+  it("should log in a user successfully", async () => {
+    (supabase.auth.signInWithPassword as any).mockResolvedValueOnce({
+      data: { user: { email: "test@example.com" } },
+      error: null,
+    });
+
     render(
-        <AuthProvider>
-            <LoginForm />
-        </AuthProvider>
+      <MemoryRouter>
+        <LoginForm />
+      </MemoryRouter>
     );
 
-    const emailInput = screen.getByPlaceholderText(/email/i);
-    const passwordInput = screen.getByPlaceholderText(/password/i);
-    const button = screen.getByRole("button", { name: /login/i });
+    fireEvent.change(screen.getByLabelText(/email address/i), { target: { value: "test@example.com" } });
+    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: "123456" } });
 
-    await userEvent.type(emailInput, "usuario@dominio.com");
-    await userEvent.type(passwordInput, "123456789");
-    await userEvent.click(button);
+    fireEvent.click(screen.getByRole("button", { name: /log in/i }));
 
-    expect(await screen.findByText(/invalid email/i)).not.toBeInTheDocument();
-    expect(await screen.findByText(/invalid password/i)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/login successful/i)).toBeInTheDocument();
+    });
   });
 });

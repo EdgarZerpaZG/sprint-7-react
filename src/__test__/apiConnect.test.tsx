@@ -7,7 +7,7 @@ describe('Request Earth Polychromatic Imaging Camera', () => {
   beforeAll(async () => {
     response = await fetch(import.meta.env.VITE_API_URL,);
     body = await response.json();
-  }, 30000);
+  });
 
   test('Should have response status 200', () => {
     expect(response.status).toBe(200);

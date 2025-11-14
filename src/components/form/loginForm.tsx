@@ -100,18 +100,10 @@ export default function LoginForm() {
       {message && <p className="text-sm text-gray-300 mt-4">{message}</p>}
 
       <div className="mt-6 flex items-center justify-center gap-x-6">
-        <button
-          type="button"
-          onClick={home}
-          className="text-sm/6 font-semibold text-white hover:text-gray-500 cursor-pointer"
-        >
+        <button type="button" onClick={home} className="text-sm/6 font-semibold text-white hover:text-gray-500 cursor-pointer">
           Cancel
         </button>
-        <button
-          type="submit"
-          disabled={loading}
-          className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer disabled:opacity-50"
-        >
+        <button type="submit" disabled={loading} className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer disabled:opacity-50">
           {loading ? "Logging in..." : "Log in"}
         </button>
       </div>
