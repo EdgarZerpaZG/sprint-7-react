@@ -10,8 +10,8 @@ This project is a **React application** focused on learning and understanding th
 
 The goal of this project is to:
 - Understand the use of **differents tecnologies** in React to manage data through the APP.
+- Gain hands-on experience with modern frontend development tools and DDBB environment.
 - Explore how to handle dynamic data and images within a React application.
-- Gain hands-on experience with modern frontend development tools.
 
 ---
 
@@ -19,6 +19,7 @@ The goal of this project is to:
 
 - Fetch and display information from the Star Wars API (starships, pilots, films, etc.)
 - User registration and login using Supabase Authentication.
+- Email verification.
 - Dynamic image storage and retrieval from Supabase Storage.
 - Search and filter functionality for exploring Star Wars data.
 - Responsive design built with TailwindCSS
